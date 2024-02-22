@@ -9,13 +9,22 @@ import "../css/TodoInput.css";
  *
  * 표준 JS 와 달리 React 에서는 "상태"를 관리하는 방법이 다르다.
  */
-const TodoInput = ({ todoItem, setTodoItem }) => {
+const TodoInput = ({ todoItem, setTodoItem, todoInsert }) => {
+  // 받는 매개변수명은 메인에서 작성한 변수 이름과 같아야한다.
   // 지금부터 todoItem 이라는 상태변수가 시작(선언)된다.
   // == 상태변수 선언의 다른 표현
   // 상태변수는 Read Only 이다!!
   //   const [todoItem, setTodoItem] = useState("");
   // 시나리오가 변경되어 todoItem 상태를 TodoMain 으로 보내고
-  // props 로 전달받아 사용할 예정
+  // TodoMain 으로 부터 props 로 전달받아 사용하기
+
+  // 추가 버튼을 클릭했을때 작동하는 event 핸들러
+  const onInsertHandler = (e) => {
+    // 추가 버튼이 클릭되면 TodoMain 에서 보내준(전달한)
+    // todoInsert() 함수를 호출해라.
+
+    todoInsert();
+  };
 
   // input box 에 키보드로 문자열을 입력하면 작동되는 event 핸들러
   const onChangeHandler = (e) => {
@@ -30,7 +39,9 @@ const TodoInput = ({ todoItem, setTodoItem }) => {
     <div className="todoInput">
       <input placeholder="TODO" value={todoItem} onChange={onChangeHandler} />
 
-      <button disabled={todoItem.length < 3}>추가</button>
+      <button disabled={todoItem.length < 3} onClick={onInsertHandler}>
+        추가
+      </button>
     </div>
   );
 };
