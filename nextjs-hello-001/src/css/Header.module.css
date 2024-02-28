@@ -1,0 +1,36 @@
+.header {
+  background-color: #51e98b;
+  padding: 1.2rem;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+.nav {
+  background-color: black;
+  color: white;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 5px;
+  margin-left: 10px;
+}
+
+.nav li {
+  padding: 0;
+}
+
+/* li에게 패딩을 주면 글자자체를 클릭해야 넘어가기 때문에 */
+/* a 태그한테 padding을 주고 a 태그 주변에도 padding을 주기위해 display : inline-box를 줌 */
+.nav a {
+  display: inline-block;
+  padding: 0.5rem;
+  margin: 5px 0;
+  border-bottom: 2px solid transparent;
+  transition: 0.7s;
+}
+.nav a:hover {
+  border-bottom: 2px solid yellow;
+}
