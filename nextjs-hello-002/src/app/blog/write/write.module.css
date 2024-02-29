@@ -1,0 +1,26 @@
+.form {
+  width: 80%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+}
+.form input,
+.form textarea {
+  width: 80%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+  margin: 4px;
+  border-radius: 7px;
+}
+
+.submit {
+  background-color: green;
+  color: white;
+  transition: 0.5s;
+}
+.submit:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
