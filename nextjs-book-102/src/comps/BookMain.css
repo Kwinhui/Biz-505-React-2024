@@ -1,20 +1,37 @@
-section.book.main {
+.book.main {
   display: flex;
-  flex-direction: column;
+  gap: 3px;
+
   width: 80%;
-  margin: 10px auto;
-  article.body {
-    display: flex;
+  margin: 30px auto;
+  aside {
+    /* 전체화면크기의 50%만큼 픽셀로 바꿔서 */
+    /* 위에 width가 100% > 1000px이면 */
+    /* 아래 width : calc(50%)는 500px으로 바뀌게됨 */
+    /*
+     화면 폭의 50%에 해당하는 px 값을 계산하여 width 로 설정하기
+     overflow : hidden 의 설정에서 보여지는 content 를 제한하기 위한 설정
+     */
+    width: calc(50%);
+    padding: 1rem;
+    background-color: #efefef;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 2px #dfdfdf;
   }
   aside.list {
-    flex: 1;
-    padding: 5px;
-    background-color: #eee;
+    flex-direction: column;
+
     color: black;
     ul {
       list-style: none;
       li {
-        padding: 5px;
+        /* text(content)의 보여지는 모양을 정리 */
+        white-space: nowrap;
+        overflow: hidden;
+        /* text가 넘치면 ...으로 표시 */
+        text-overflow: ellipsis;
+
+        padding: 8px;
         &:nth-of-type(odd) {
           background-color: #ddd;
         }
@@ -27,6 +44,7 @@ section.book.main {
   }
   aside.detail {
     flex: 3;
+    color: black;
   }
 }
 div.book.search {
@@ -44,6 +62,17 @@ div.book.search {
     &:hover {
       background-color: #ddd;
       cursor: pointer;
+    }
+  }
+}
+/* 800px 보다 작아지면 */
+@media (max-width: 800px) {
+  .book.main {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    aside {
+      width: calc(90%);
     }
   }
 }
