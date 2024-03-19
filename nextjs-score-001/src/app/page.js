@@ -37,6 +37,7 @@ export default function Home() {
       // console.log(result);
     };
     scoreFetch();
+    // student 값이 변하면 useEffect를 실행해라
   }, [student]);
 
   return (
