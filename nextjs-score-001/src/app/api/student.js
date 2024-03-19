@@ -10,8 +10,11 @@ export const selectAll = async () => {
     // 전체데이터 가져와(fetch)
     const result = await prisma.tbl_student.findMany();
     // console.log(result);
+    // disconnect를 해주지 않으면 계속 열려있기때문에 닫아줘야함
+    prisma.$disconnect;
     return result;
   } catch (error) {
     console.error(error);
+    prisma.$disconnect;
   }
 };

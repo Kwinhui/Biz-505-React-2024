@@ -2,11 +2,89 @@
   display: flex;
   padding: 2rem;
   /* min-height: 100vh; */
+  height: 100%;
 }
 
 .main section {
   flex: 1;
   margin: 5px;
   padding: 8px;
-  border: 1px solid blue;
+  border: 3px solid rgb(164, 164, 226);
+  border-radius: 15px;
+}
+
+/* .list ul:nth-of-type(1) {
+  height: 100%;
+} */
+.list ul,
+.detail ul {
+  overflow-y: scroll;
+  /* height: 80%; */
+}
+
+.list ul {
+  height: 90%;
+  white-space: nowrap;
+}
+.detail ::-webkit-scrollbar,
+.list ::-webkit-scrollbar {
+  display: none;
+}
+
+/* .list ul,
+.detail ul {
+  list-style: none;
+}
+.detail ul {
+  padding: 10px;
+  border: 1px solid #aaa;
+  margin: 5px;
+  border-radius: 10px;
+}
+.detail ul li {
+  padding: 10px;
+  border-bottom: 1px solid #aaa;
+  border-radius: 15px;
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+} */
+
+.detail h1 {
+  border-radius: 50px;
+  padding: 12px;
+  margin: 5px;
+  white-space: nowrap;
+}
+.list h1,
+.detail h2 {
+  text-align: center;
+  margin-bottom: 10px;
+
+  border-radius: 50px;
+  padding: 8px;
+  white-space: nowrap;
+}
+.list ul li {
+  padding: 10px;
+  border-bottom: 1px solid #aaa;
+  margin: 5px auto;
+  width: 80%;
+  text-align: center;
+}
+
+/* .list ul li:hover {
+  border-radius: 15px;
+  background-color: #aaa;
+  cursor: pointer;
+} */
+
+/* Tablet 세로화면으로 볼때 화면 구성 변경:반응형 */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+  }
+  .main section:nth-of-type(1) {
+    order: 2;
+  }
 }

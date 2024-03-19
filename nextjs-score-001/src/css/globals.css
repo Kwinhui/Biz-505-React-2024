@@ -59,8 +59,13 @@ body {
 }
 
 body {
+  overflow: scroll;
+  /* overflow: hidden; */
   height: 100%;
   color: rgb(var(--foreground-rgb));
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 
 a {

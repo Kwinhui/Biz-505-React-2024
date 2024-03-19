@@ -13,10 +13,16 @@ import { findByStNum } from "./api/score";
 export default function Home() {
   const [studentList, setStudentList] = useState([]);
   const [scoreList, setScoreList] = useState([]);
+  // const [student, setStudent] = useState("");
+  const [student, setStudent] = useState({});
+
   useEffect(() => {
     const stdFetch = async () => {
       const result = await st_selectAll();
-      if (result) setStudentList([...result]);
+      if (result) {
+        setStudentList([...result]);
+        setStudent(result[0]);
+      }
     };
     // 함수실행
     stdFetch();
@@ -24,19 +30,22 @@ export default function Home() {
 
   useEffect(() => {
     const scoreFetch = async () => {
-      const result = await findByStNum("S0010");
+      // const result = await findByStNum(student?.st_num || "S0001");
+      // 앞에있는 값이 null 이면 뒤에 S0001 을 표현해라
+      const result = await findByStNum(student?.st_num ?? "S0001");
       setScoreList([...result]);
+      // console.log(result);
     };
     scoreFetch();
-  }, []);
+  }, [student]);
 
   return (
     <main className={styles.main}>
       <section className={styles.list}>
-        <StudentList studentList={studentList} />
+        <StudentList studentList={studentList} setStudent={setStudent} />
       </section>
       <section className={styles.detail}>
-        <StudentDetail>
+        <StudentDetail student={student}>
           <ScoreList scoreList={scoreList} />
         </StudentDetail>
       </section>

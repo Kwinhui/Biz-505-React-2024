@@ -1,7 +1,23 @@
-const StudentDetail = ({ children }) => {
+import css from "@/css/student.detail.module.css";
+const StudentDetail = ({ children, student }) => {
   return (
     <>
-      <h1>학생정보 자세히보기</h1>
+      <div className={css.body}>
+        <div>
+          <strong>학번</strong>
+          <span>{student.st_num}</span>
+          <strong>이름</strong>
+          <span>{student.st_name}</span>
+          <strong>학과</strong>
+          <span>{student.st_dept}</span>
+          <strong>학년</strong>
+          <span>{student.st_grade}</span>
+          <strong>전화번호</strong>
+          <span>{student.st_tel}</span>
+          <strong>주소</strong>
+          <span>{student.st_addr}</span>
+        </div>
+      </div>
       {children}
     </>
   );
