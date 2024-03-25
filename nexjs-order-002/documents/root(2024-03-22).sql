@@ -282,25 +282,3 @@ WHERE C.c_code IS NULL;
 ALTER TABLE tbl_orders
 ADD CONSTRAINT fk_oc FOREIGN KEY (o_ccode)
 REFERENCES tbl_customer(c_code);
-
-SELECT * FROM tbl_customer;
-
-/*
- MySQL 에서는 칼럼에 대하여 FullText 연산을
- 지원하지 않는다.
- Prisma 를 통하여 Like 연산을 수행하기 위하여
- FullText 연산 기능을 ON 해주기
- FullText 는 단어, 구문 검색기능을 수행한다.
- 그리고 MySQL DBMS 자체의 독특한 Index 를 걸어서
- 검색 성능을 조금이라도 높이기 위한 조치를 취한다.
-*/
--- React에서 FULLTEXT INDEX 를 사용하기위한 방법
-ALTER TABLE tbl_customer ADD FULLTEXT(c_name);
-ALTER TABLE tbl_customer ADD FULLTEXT(c_tel);
--- INDEX 를 지우는 방법 2가지
-ALTER TABLE tbl_customer DROP INDEX c_name;
-
-DROP INDEX c_name_2 ON tbl_customer;
-
-SELECT * FROM tbl_product;
-SELECT * FROM tbl_customer;
