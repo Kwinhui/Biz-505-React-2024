@@ -6,9 +6,22 @@ import png4 from "../images/4.png";
 import png5 from "../images/5.png";
 import png7 from "../images/7.png";
 import png8 from "../images/8.png";
+import "../css/Welcome.css";
+import "../css/Main.css";
+import "../css/Table.css";
+import "../css/Search.css";
+import "../css/Input.css";
+import "../css/Detail.css";
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>;
+import AOS from "aos";
+import { useEffect } from "react";
+import "aos/dist/aos.css";
 const Dash = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  }, []);
   return (
     <>
       <div className="welcome_wrap">
@@ -16,7 +29,7 @@ const Dash = () => {
           <img src={bug} width="200px" />
           <h1 className="title">환영합니다</h1>
           <p>맴맴은 처음이신가요?</p>
-          <a className="button_price" href="/main/join">
+          <a className="button_price" href="/Join">
             무료로 시작하기
           </a>
           <img className="angle_down" src={down} width="20px" />
@@ -119,7 +132,7 @@ const Dash = () => {
             무료로 시작해보세요!
           </h1>
           <p>무료체험 버전으로도 충분히 기능을 사용해볼 수 있어요!</p>
-          <a className="button_price" href="/main/join">
+          <a className="button_price" href="/join">
             무료로 시작하기
           </a>
         </section>

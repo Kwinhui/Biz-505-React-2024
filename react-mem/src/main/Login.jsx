@@ -1,3 +1,8 @@
+import "../css/Main.css";
+import "../css/Table.css";
+import "../css/Search.css";
+import "../css/Input.css";
+import "../css/Detail.css";
 const Login = () => {
   return (
     <>
